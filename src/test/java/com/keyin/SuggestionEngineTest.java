@@ -87,6 +87,11 @@ public class SuggestionEngineTest {
         assertTrue(suggestions.contains("occurred"));
     }
 
-
+    @Test
+    public void testFalseWord() {
+        String suggestions = suggestionEngine.generateSuggestions("fnrewuifgbrueyfgyrue");
+        assertFalse(suggestions.isEmpty());
+        assertTrue(suggestions.contains("fnrewuifgbrueyfgyrue"));
+    }
 
 }
