@@ -70,6 +70,7 @@ public class SuggestionEngineTest {
 
     @Test
     public void testEmptyWord() {
+
         assertEquals("", suggestionEngine.generateSuggestions(""));
     }
 
