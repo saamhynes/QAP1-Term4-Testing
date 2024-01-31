@@ -3,10 +3,10 @@ package com.keyin;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
+//import org.junit.jupiter.api.extension.ExtendWith;
+//import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+//import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.net.URL;
 import java.nio.file.Paths;
@@ -14,14 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@ExtendWith(MockitoExtension.class)
+
+//@ExtendWith(MockitoExtension.class)
 public class SuggestionEngineTest {
     private SuggestionEngine suggestionEngine = new SuggestionEngine();
 
-    @Mock
+//    @Mock
     private SuggestionsDatabase mockSuggestionDB;
     private boolean testInstanceSame = false;
 
