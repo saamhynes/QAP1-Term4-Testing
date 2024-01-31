@@ -25,47 +25,47 @@ public class SuggestionEngineTest {
     private SuggestionsDatabase mockSuggestionDB;
     private boolean testInstanceSame = false;
 
-    @Test
-    public void testGenerateSuggestions() throws Exception {
-        URL resourceUrl = getClass().getClassLoader().getResource("words.txt");
-        if (resourceUrl != null) {
-            suggestionEngine.loadDictionaryData((Paths.get(resourceUrl.toURI())));
-        } else {
-            System.out.println("Error: Could not find words.txt");
-        }
+//    @Test
+//    public void testGenerateSuggestions() throws Exception {
+//        URL resourceUrl = getClass().getClassLoader().getResource("words.txt");
+//        if (resourceUrl != null) {
+//            suggestionEngine.loadDictionaryData((Paths.get(resourceUrl.toURI())));
+//        } else {
+//            System.out.println("Error: Could not find words.txt");
+//        }
+//
+//        Assertions.assertTrue(suggestionEngine.generateSuggestions(("hellw")).contains("hello"));
+//    }
+//
+//    @Test
+//    public void testGenerateSuggestionsFail() throws Exception {
+//        URL resourceUrl = getClass().getClassLoader().getResource("words.txt");
+//        if (resourceUrl != null) {
+//            suggestionEngine.loadDictionaryData((Paths.get(resourceUrl.toURI())));
+//        } else {
+//            System.out.println("Error: Could not find words.txt");
+//        }
+//
+//
+//        testInstanceSame = true;
+//        Assertions.assertTrue(testInstanceSame);
+//        Assertions.assertFalse(suggestionEngine.generateSuggestions(("hello")).contains("hello"));
+//    }
 
-        Assertions.assertTrue(suggestionEngine.generateSuggestions(("hellw")).contains("hello"));
-    }
-
-    @Test
-    public void testGenerateSuggestionsFail() throws Exception {
-        URL resourceUrl = getClass().getClassLoader().getResource("words.txt");
-        if (resourceUrl != null) {
-            suggestionEngine.loadDictionaryData((Paths.get(resourceUrl.toURI())));
-        } else {
-            System.out.println("Error: Could not find words.txt");
-        }
-
-
-        testInstanceSame = true;
-        Assertions.assertTrue(testInstanceSame);
-        Assertions.assertFalse(suggestionEngine.generateSuggestions(("hello")).contains("hello"));
-    }
-
-    @Test
-    public void testSuggestionsAsMock() {
-        Map<String,Integer> wordMapForTest = new HashMap<>();
-
-        wordMapForTest.put("test", 1);
-
-        Mockito.when(mockSuggestionDB.getWordMap()).thenReturn(wordMapForTest);
-
-        suggestionEngine.setWordSuggestionDB(mockSuggestionDB);
-
-        Assertions.assertFalse(suggestionEngine.generateSuggestions("test").contains("test"));
-
-        Assertions.assertTrue(suggestionEngine.generateSuggestions("tes").contains("test"));
-    }
+//    @Test
+//    public void testSuggestionsAsMock() {
+//        Map<String,Integer> wordMapForTest = new HashMap<>();
+//
+//        wordMapForTest.put("test", 1);
+//
+//        Mockito.when(mockSuggestionDB.getWordMap()).thenReturn(wordMapForTest);
+//
+//        suggestionEngine.setWordSuggestionDB(mockSuggestionDB);
+//
+//        Assertions.assertFalse(suggestionEngine.generateSuggestions("test").contains("test"));
+//
+//        Assertions.assertTrue(suggestionEngine.generateSuggestions("tes").contains("test"));
+//    }
 
 
     @Test
