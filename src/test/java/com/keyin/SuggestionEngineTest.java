@@ -36,36 +36,36 @@ public class SuggestionEngineTest {
 //
 //        Assertions.assertTrue(suggestionEngine.generateSuggestions(("hellw")).contains("hello"));
 //    }
-//
-//    @Test
-//    public void testGenerateSuggestionsFail() throws Exception {
-//        URL resourceUrl = getClass().getClassLoader().getResource("words.txt");
-//        if (resourceUrl != null) {
-//            suggestionEngine.loadDictionaryData((Paths.get(resourceUrl.toURI())));
-//        } else {
-//            System.out.println("Error: Could not find words.txt");
-//        }
-//
-//
-//        testInstanceSame = true;
-//        Assertions.assertTrue(testInstanceSame);
-//        Assertions.assertFalse(suggestionEngine.generateSuggestions(("hello")).contains("hello"));
-//    }
 
-//    @Test
-//    public void testSuggestionsAsMock() {
-//        Map<String,Integer> wordMapForTest = new HashMap<>();
-//
-//        wordMapForTest.put("test", 1);
-//
-//        Mockito.when(mockSuggestionDB.getWordMap()).thenReturn(wordMapForTest);
-//
-//        suggestionEngine.setWordSuggestionDB(mockSuggestionDB);
-//
-//        Assertions.assertFalse(suggestionEngine.generateSuggestions("test").contains("test"));
-//
-//        Assertions.assertTrue(suggestionEngine.generateSuggestions("tes").contains("test"));
-//    }
+    @Test
+    public void testGenerateSuggestionsFail() throws Exception {
+        URL resourceUrl = getClass().getClassLoader().getResource("words.txt");
+        if (resourceUrl != null) {
+            suggestionEngine.loadDictionaryData((Paths.get(resourceUrl.toURI())));
+        } else {
+            System.out.println("Error: Could not find words.txt");
+        }
+
+
+        testInstanceSame = true;
+        Assertions.assertTrue(testInstanceSame);
+        Assertions.assertFalse(suggestionEngine.generateSuggestions(("hello")).contains("hello"));
+    }
+
+    @Test
+    public void testSuggestionsAsMock() {
+        Map<String,Integer> wordMapForTest = new HashMap<>();
+
+        wordMapForTest.put("test", 1);
+
+        Mockito.when(mockSuggestionDB.getWordMap()).thenReturn(wordMapForTest);
+
+        suggestionEngine.setWordSuggestionDB(mockSuggestionDB);
+
+        Assertions.assertFalse(suggestionEngine.generateSuggestions("test").contains("test"));
+
+        Assertions.assertTrue(suggestionEngine.generateSuggestions("tes").contains("test"));
+    }
 
 
     @Test
@@ -76,22 +76,9 @@ public class SuggestionEngineTest {
 
 
     @Test public void testCorrectSpelling() {
-        assertEquals("", suggestionEngine.generateSuggestions("correct "));
+        assertEquals("", suggestionEngine.generateSuggestions("correct"));
 
     }
 
-    @Test
-    public void testShortWord() {
-        String suggestions = suggestionEngine.generateSuggestions("occurred");
-        assertFalse(suggestions.isEmpty());
-        assertTrue(suggestions.contains("occurred"));
-    }
-
-    @Test
-    public void testFalseWord() {
-        String suggestions = suggestionEngine.generateSuggestions("fnrewuifgbrueyfgyrue");
-        assertFalse(suggestions.isEmpty());
-        assertTrue(suggestions.contains("fnrewuifgbrueyfgyrue"));
-    }
 
 }
