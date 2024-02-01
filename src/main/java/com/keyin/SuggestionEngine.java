@@ -85,6 +85,7 @@ public class SuggestionEngine {
         return wordSuggestionDB.getWordMap();
     }
 
+
     public void setWordSuggestionDB(SuggestionsDatabase wordSuggestionDB) {
         this.wordSuggestionDB = wordSuggestionDB;
     }
